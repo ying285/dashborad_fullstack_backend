@@ -1,4 +1,5 @@
 const express = require("express");
+require('dotenv').config()
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -29,7 +30,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-     "mongodb+srv://ying285:Klkmo123@dashboradfullstack.oo0ln.mongodb.net/dashborad?retryWrites=true&w=majority"
+     process.env.MY_KEY
   )
   .then((result) => {
     app.listen(process.env.PORT || 8003);
